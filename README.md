@@ -1,46 +1,73 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Greptile Frontend
 
-## Available Scripts
+This is the React-based frontend application for the Changelog Summarizer. It allows users to input a GitHub repo and commit range to fetch and display AI-generated changelogs.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Features](#features)  
+- [Technologies](#technologies)  
+- [Prerequisites](#prerequisites)  
+- [Installation](#installation)  
+- [Running the Frontend](#running-the-frontend)  
+- [Things I Would Have Done With More Time](#things-i-would-have-done-with-more-time)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Responsive UI for inputting GitHub repo URL and commit SHAs  
+- Fetch and display commit data from the backend API  
+- Show AI-generated changelog summaries  
+- User-friendly loading and error states  
+- Markdown rendering for changelog content  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+- React 19.x  
+- TypeScript  
+- React Router DOM  
+- Tailwind CSS (with Typography plugin)  
+- React Markdown  
+- Lucide React (icon library)  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v16 or higher recommended)  
+- npm or yarn package manager  
+- Access to the backend API (ensure backend is running and accessible)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. **Clone the repo and install dependencies**:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+	```bash
+	git clone https://github.com/wrudder/greptile-frontend.git
+	cd greptile-frontend
+	yarn install
+	```
+2.  **Start the server**
+		Ensure you are running the server on 3001
+	```bash
+	yarn start
+	```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Things I Would Have Done with More Time
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This project was a great opportunity to rapidly prototype a tool that integrates GitHub commit data with AI-generated summaries. With more time I would love to expand and refine a few things:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **Support for Private Repositories via Authentication**  
+  Currently, the app works with public repositories only. Adding OAuth-based GitHub login would allow users to securely authenticate and access their private repos.
 
-## Learn More
+- **Editable Changelog Output**  
+  Right now, the AI-generated changelog is final. A natural next step would be to allow users to edit or refine the generated summary directly in the UI—perhaps with a markdown editor or storing the response in the DB as an entity ( e.g. changelog with changelog_items that we display and can be edited) 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Deeper AI Understanding of Code Changes**  
+  The AI currently summarizes commit messages. With more time, I’d explore parsing the diffs themselves and using AI to reason about the actual code changes—perhaps even clustering similar changes or tagging types of updates (e.g. refactor, bugfix, feature).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Use a More Lightweight Backend Framework**  
+  I chose Rails because I was already familiar with it and it allowed me to move quickly, but it's heavy for such a focused API service. In hindsight, a lightweight framework like Sinatra or  Node/Express setup could have been a better fit.
+
+---
+
+Overall, I focused on delivering an end-to-end working demo, and it was a lot of fun to build. There's huge potential in refining this further, and I'm excited to keep pushing it forward. Can we get greptile to review this one? :)
+
